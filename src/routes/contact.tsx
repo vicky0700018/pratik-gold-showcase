@@ -5,7 +5,7 @@ import { Icon, PageHeader } from "@/components/ui-bits";
 import { useStore, uid } from "@/lib/store";
 
 export const Route = createFileRoute("/contact")({
-  validateSearch: (s: Record<string, unknown>) => ({ product: typeof s.product === "string" ? s.product : undefined }),
+  validateSearch: (s: Record<string, unknown>) => ({ product: typeof s["product"] === "string" ? (s["product"] as string) : undefined }) as { product?: string },
   head: () => ({
     meta: [
       { title: "Contact Us — Pratik Gold, Mumbai" },
