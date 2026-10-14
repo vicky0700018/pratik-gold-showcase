@@ -5,7 +5,7 @@ import { Img, Icon } from "@/components/ui-bits";
 import { useStore, sortedProducts, type Product } from "@/lib/store";
 
 export const Route = createFileRoute("/products")({
-  validateSearch: (s: Record<string, unknown>) => ({ category: typeof s.category === "string" ? s.category : undefined }),
+  validateSearch: (s: Record<string, unknown>) => ({ category: typeof s["category"] === "string" ? (s["category"] as string) : undefined }) as { category?: string },
   head: () => ({
     meta: [
       { title: "Products & Services — Pratik Gold" },
